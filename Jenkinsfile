@@ -17,9 +17,15 @@ pipeline {
         }
 
         stage('Mostrar Archivos') {
-            //when {branch 'dev'}
+            
             steps {
                 sh 'ls -la'
+            }
+        }
+        //Despliegue
+        stage('Despliegue de la Aplicacion') {
+            steps {
+                sh 'cp dist/democlase06/* /tmp/deploy'
             }
         }
     }
