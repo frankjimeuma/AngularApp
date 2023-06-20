@@ -15,5 +15,12 @@ pipeline {
                 sh 'npm run build'
             }
         }
+
+        stage('Mensaje final') {
+            when {branch 'dev'}
+            steps {
+                echo 'Todo bien!'
+            }
+        }
     }
 }
