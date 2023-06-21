@@ -21,6 +21,13 @@ pipeline {
             steps {
                 sh 'ls -la'
             }
+
+         }
+
+        stage('Despliegue de aplicacion') {
+            steps {
+                sh 'cp /dist/AngularApp-Frank/* /tmp/deploy
+            }
         }
     }
 }
