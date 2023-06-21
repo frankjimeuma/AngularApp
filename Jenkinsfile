@@ -1,4 +1,4 @@
-pipeline {
+pipeline { //hello!
     agent any
 
     stages {
@@ -17,9 +17,15 @@ pipeline {
         }
 
         stage('Mostrar Archivos') {
-            //when {branch 'dev'}
             steps {
                 sh 'ls -la'
+            }
+
+         }
+
+        stage('Despliegue de aplicacion') {
+            steps {
+                sh 'cp /dist/AngularApp/* /tmp/deploy'
             }
         }
     }
