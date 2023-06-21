@@ -17,7 +17,7 @@ pipeline {
         }
 
         stage('Mostrar Archivos') {
-            //when {branch 'dev'}
+            
             steps {
                 sh 'ls -la'
             }
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Despliegue de aplicacion') {
             steps {
-                sh 'cp /dist/AngularApp-Frank/* /tmp/deploy
+                sh 'cp /dist/AngularApp-Frank/* /tmp/deploy'
             }
         }
     }
