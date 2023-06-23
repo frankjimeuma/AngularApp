@@ -4,6 +4,9 @@ pipeline {
     //Declaracion de valores de entorno
     environment {
         MESSAGE = "Curso de Intgracion Continua"
+        LISTA_CORREOS = "franklin.jimenezumana@ucreativa"
+        CUERPO_CORREO = "El pipeline ${BUILD_URL} tuvo un resultado"
+        TITULO_CORREO = "${BUILD_URL} STATUS"
     }
 
 
@@ -73,11 +76,17 @@ pipeline {
           echo 'siempre me voy a ejecutar...no matter what happens in the world :| '
       }
       success {
-          echo 'El ipeline da ok :)'
+          emailext body: "${CUERPO_CORREO} exitoso", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
       }
       failure {
-          echo 'Algo Salio Mal :('
+          emailext body: "${CUERPO_CORREO} fallido", subject: "${TITULO_CORREO}", to: "${LISTA_CORREOS}"
       }
+ //     success {
+   //       echo 'El ipeline da ok :)'
+     // }
+      //failure {
+        //  echo 'Algo Salio Mal :('
+      //}
     
     }
 
