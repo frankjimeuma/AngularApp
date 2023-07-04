@@ -82,7 +82,7 @@ pipeline {
                 //bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
 
                 //the following line is for Prod deploy in AWS S3 bucket Linux agent
-                sh 'aws s3 cp dist/angular-app/ s3//proyecto-frank-s3 --recursive'
+                sh 'aws s3 cp dist/angular-app/ s3://proyecto-frank-s3 --recursive'
                 
         
             }
