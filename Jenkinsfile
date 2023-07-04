@@ -48,46 +48,11 @@ pipeline {
 
         stage('Mostrar Archivos') {
             steps {
-                //the following command works with Windows
-                //sh 'dir dist'
-
-                //the following command works with linux
                 sh 'ls dist'
             }
         }
-        stage('Deploy to server Development') {
-            when {branch 'development'}
-            steps {
-                // the following line is for Dev in Digital Ocean for Linux agent
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-dev/'
-      
         
-            }
-        }
-        stage('Deploy to server Staging') {
-            when {branch 'staging'}
-            steps {
-                // the following line is for Staging in Digital Ocean for Linux agent
-                sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-staging/'
-      
-        
-            }
-        }
-
-      stage('Deploy to server Production') {
-            when {branch 'production'}
-            steps {
-                //the following line is for Prod  in Digital Ocean for Linux agent
-                //sh 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
-                //bat 'scp dist/angular-app/* root@206.189.254.187:/usr/ucreativa/franklin-prod/'
-
-                //the following line is for Prod deploy in AWS S3 bucket Linux agent
-                sh 'aws s3 cp dist/angular-app/ s3://proyecto-frank-s3 --recursive'
-                
-        
-            }
-        }
-      stage('success') {
+        stage('success') {
             steps {
                 sh 'ls -la'
               
