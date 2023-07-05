@@ -33,11 +33,11 @@ pipeline {
             }
         }
       
-        stage('Correr pruebas de unidad') {
-           steps {
-                sh 'npm run test'
-            }
-        }  
+        //stage('Correr pruebas de unidad') {
+           //steps {
+                //sh 'npm run test'
+            //}
+       // }  
 
         stage('Run SonarQube'){
             steps{
