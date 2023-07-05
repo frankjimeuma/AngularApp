@@ -51,10 +51,38 @@ pipeline {
                 sh 'ls dist'
             }
         }
-        
-        stage('success') {
+
+        stage('Mostrar Archivos') {
             steps {
-                sh 'ls -la'
+                sh 'ls dist'
+            }
+        }
+
+                stage('Despliegue Development') {
+            when {branch 'development'}
+            steps {
+                sh 'aws s3 cp dist/angular-app/ s3://proyecto-frank-s3-dev --recursive'
+              
+        
+            }
+        }
+
+
+              stage('Despliegue staging') {
+            when {branch 'staging'}
+            steps {
+                sh 'aws s3 cp dist/angular-app/ s3://proyecto-frank-s3-staging --recursive'
+              
+        
+            }
+        }
+
+      
+        
+        stage('Despliegue Production') {
+            when {branch 'production'}
+            steps {
+                sh 'aws s3 cp dist/angular-app/ s3://proyecto-frank-s3-prod --recursive'
               
         
             }
