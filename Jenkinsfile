@@ -38,6 +38,16 @@ pipeline {
                 sh 'npm run test'
             }
         }  
+
+        stage('Run SonarQube'){
+            steps{
+        withSonarQubeEnv('SonarQubeCursoCI') {
+            sh "/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=AngularApp -Dsonar.sources=src"
+                }
+            }
+        }
+      
+
       
         stage('Compilacion de la aplicacion Angular') {
             steps {
