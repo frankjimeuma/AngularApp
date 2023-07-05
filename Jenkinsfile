@@ -32,6 +32,13 @@ pipeline {
                 //sh 'sudo ./aws/install'
             }
         }
+
+stage('cambio sugerido') {
+           steps {
+                sh 'echo hola'
+            }
+        }  
+
       
         stage('Correr pruebas de unidad') {
            steps {
