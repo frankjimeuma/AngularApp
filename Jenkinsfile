@@ -46,11 +46,6 @@ pipeline {
         }
         
 
-        stage('Mostrar Archivos') {
-            steps {
-                sh 'ls dist'
-            }
-        }
 
         stage('Mostrar Archivos') {
             steps {
